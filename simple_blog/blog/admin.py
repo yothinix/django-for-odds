@@ -1,8 +1,15 @@
 from django.contrib import admin
 
+from comments.models import Comment
+
 from .models import Blog
 
-# admin.site.register(Blog)
+
+class CommentInline(admin.StackedInline):
+    model = Comment
+    fields = ['is_spam', 'comment', 'created_by']
+    extra = 1
+
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
@@ -10,3 +17,5 @@ class BlogAdmin(admin.ModelAdmin):
     search_fields = ['title', 'content']
 
     list_filter = ['created']
+
+    inlines = [CommentInline]
