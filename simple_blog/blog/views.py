@@ -1,4 +1,5 @@
 from django.views.generic import DetailView, ListView, TemplateView
+from django.http import JsonResponse
 
 from .models import Blog
 
@@ -28,3 +29,18 @@ class SimpleBlogDetailView(DetailView):
 class MultipleBlogView(ListView):
     model = Blog
     context_object_name = "blogs"
+
+
+class BlogApiView(TemplateView):
+    def get(self, request, *args, **kwargs):
+        blog_list = []
+
+        blogs = Blog.objects.all()
+        for item in blogs:
+            blog_list.append({
+                'id': item.id,
+                'title': item.title,
+                'content': item.content
+            })           
+
+        return JsonResponse({'blogs': blog_list})
