@@ -15,4 +15,4 @@ class Comment(TimeStampedModel):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'Comment for ({self.blog}) by {self.created_by.username}'
+        return f"Comment for ({self.blog}) by {self.created_by.username}"

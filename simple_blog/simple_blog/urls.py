@@ -19,8 +19,12 @@ from django.urls import path
 from blog.views import SimpleBlogView, SimpleBlogDetailView, MultipleBlogView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('blog/', MultipleBlogView.as_view(), name='blog-list'),
-    path('blog/<int:blog_id>', SimpleBlogView.as_view(), name='simple-blog'),
-    path('blog/detail/<int:id>', SimpleBlogDetailView.as_view(), name='simple-detail-blog')
+    path("admin/", admin.site.urls),
+    path("blog/", MultipleBlogView.as_view(), name="blog-list"),
+    path("blog/<int:blog_id>", SimpleBlogView.as_view(), name="simple-blog"),
+    path(
+        "blog/detail/<int:id>",
+        SimpleBlogDetailView.as_view(),
+        name="simple-detail-blog",
+    ),
 ]

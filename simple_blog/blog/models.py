@@ -12,4 +12,4 @@ class Blog(models.Model):
 
     def __str__(self):
         # 1: Django 101
-        return f'{self.id}: {self.title}'
+        return f"{self.id}: {self.title}"
