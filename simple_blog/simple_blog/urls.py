@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from blog.views import SimpleBlogView, SimpleBlogDetailView, MultipleBlogView
+from blog.views import MultipleBlogView, SimpleBlogDetailView, SimpleBlogView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
